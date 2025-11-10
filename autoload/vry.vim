@@ -2,7 +2,7 @@
 " Filename: autoload/vry.vim
 " Author: Steffen Brüntjen
 " License: MIT License
-" Last Change: 2025/11/11 19:47:00
+" Last Change: 2025/11/11 20:40:00
 " Purpose: highlight current visual selection
 " =============================================================================
 
@@ -10,7 +10,7 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 function! vry#highlight() abort
-  hi link VrySelection Pmenu
+  hi! link VrySelection Pmenu
 endfunction
 
 function! vry#matchadd() abort
