@@ -2,7 +2,7 @@
 " Filename: plugin/vry.vim
 " Author: Steffen Brüntjen
 " License: MIT License
-" Last Change: 2025/11/11 20:40:00
+" Last Change: 2025/11/11 21:40:00
 " Purpose: setup autocommands for visual-selection highlighting
 " =============================================================================
 
@@ -14,18 +14,14 @@ let g:loaded_vry = 1
 let s:save_cpo = &cpo
 set cpo&vim
 
-if hlexists('Pmenu')
-  hi! link VrySelection Pmenu
-else
-  hi default VrySelection gui=underline cterm=underline
-endif
+call vry#link_color()
 
 augroup vry
   autocmd!
-  autocmd ColorScheme * call vry#highlight()
-  autocmd CursorMoved,CursorMovedI * call vry#cursormoved()
-  autocmd ModeChanged *:v call vry#cursormoved()
-  autocmd ModeChanged v:* call vry#clean()
+  autocmd ColorScheme * call vry#link_color()
+  autocmd ModeChanged [vV]:* call vry#clean() " clean must come first
+  autocmd ModeChanged *:[vV] call vry#highlight()
+  autocmd CursorMoved,CursorMovedI * call vry#highlight()
 augroup END
 let &cpo = s:save_cpo
 unlet s:save_cpo
