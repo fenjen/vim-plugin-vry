@@ -19,8 +19,10 @@ call vry#link_color()
 augroup vry
   autocmd!
   autocmd ColorScheme * call vry#link_color()
-  autocmd ModeChanged [vV]:* call vry#clean() " clean must come first
-  autocmd ModeChanged *:[vV] call vry#highlight()
+  if exists('##ModeChanged')
+    autocmd ModeChanged [vV]:* call vry#clean() " clean must come first
+    autocmd ModeChanged *:[vV] call vry#highlight()
+  endif
   autocmd CursorMoved,CursorMovedI * call vry#highlight()
 augroup END
 let &cpo = s:save_cpo
