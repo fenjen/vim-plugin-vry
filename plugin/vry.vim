@@ -14,10 +14,10 @@ let g:loaded_vry = 1
 let s:save_cpo = &cpo
 set cpo&vim
 
-if exists('v:colors_name')
-  hi default VrySelection gui=underline cterm=underline
-else
+if hlexists('Pmenu')
   hi! link VrySelection Pmenu
+else
+  hi default VrySelection gui=underline cterm=underline
 endif
 
 augroup vry
