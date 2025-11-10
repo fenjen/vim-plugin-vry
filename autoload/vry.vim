@@ -38,23 +38,23 @@ function! vry#matchadd() abort
     return
   endif
 
-  " Remove previous match if any
-  if get(w:, 'vry_match')
-    silent! call matchdelete(w:vry_id)
-  endif
+  call vry#clean()
 
   let pattern = escape(sel, '~"\.^$[]*')
   let w:vry_id = matchadd('VrySelection', pattern, -100)
   let w:vry_match = 1
 endfunction
 
-function! vry#cursormoved() abort
-  " Remove previous match
+function! vry#clean() abort
+  " Remove previous match if any
   if get(w:, 'vry_match')
     silent! call matchdelete(w:vry_id)
     let w:vry_match = 0
   endif
+endfunction
 
+function! vry#cursormoved() abort
+  call vry#clean()
   call vry#matchadd()
 endfunction
 

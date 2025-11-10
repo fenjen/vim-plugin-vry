@@ -24,7 +24,8 @@ augroup vry
   autocmd!
   autocmd ColorScheme * call vry#highlight()
   autocmd CursorMoved,CursorMovedI * call vry#cursormoved()
+  autocmd ModeChanged *:v call vry#cursormoved()
+  autocmd ModeChanged v:* call vry#clean()
 augroup END
-
 let &cpo = s:save_cpo
 unlet s:save_cpo
