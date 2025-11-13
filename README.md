@@ -3,6 +3,9 @@
 
 Highlights occurrences of the visual mode selection.
 
+## Preview
+![video](vry.gif)
+
 ## Installation
 Install with your favorite plugin manager.
 
