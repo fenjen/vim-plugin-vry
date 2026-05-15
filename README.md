@@ -1,7 +1,7 @@
 # vry
-`vim repeating you`
+`vry repeats you`
 
-Highlights occurrences of the visual mode selection.
+vry highlights verbatim repetitions of the current selection, yonder in the buffer.
 
 ## Preview
 ![video](vry.gif)
